@@ -1,0 +1,108 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Dev-env",
+			"type": "shell",
+			"command": "echo Starting...",
+			"detail": "Start the whole dev environment",
+			"problemMatcher": [],
+			"dependsOn": [
+				"Drizzle Studio",
+				"Stripe webhook"
+			]
+		},
+		{
+			"label": "Dev-env-2",
+			"type": "shell",
+			"command": "echo Starting...",
+			"detail": "Start frontend & backend",
+			"problemMatcher": [],
+			"dependsOn": [
+				"Backend debug",
+				"Frontend dev"
+			]
+		},
+		{
+			"type": "npm",
+			"path": "backend",
+			"script": "start:debug",
+			"problemMatcher": [],
+			"label": "Backend debug"
+		},
+		{
+			"type": "shell",
+			"command": "stripe listen --forward-to localhost:3001/stripe/webhook",
+			"label": "Stripe webhook",
+			"detail": "Stripe cli webhook",
+			"problemMatcher": []
+		},
+		{
+			"type": "npm",
+			"path": "backend",
+			"label": "Drizzle Studio",
+			"detail": "Open Drizzle Studio",
+			"script": "drizzle-studio",
+			"problemMatcher": []
+		},
+		{
+			"type": "npm",
+			"path": "backend",
+			"label": "Drizzle Generate Migration",
+			"detail": "Generate a new migration",
+			"script": "generate:migration",
+			"problemMatcher": []
+		},
+		{
+			"type": "npm",
+			"path": "backend",
+			"label": "Drizzle Migrate",
+			"detail": "Migrate changes to database",
+			"script": "migrate",
+			"problemMatcher": []
+		},
+		{
+			"type": "npm",
+			"path": "frontend",
+			"script": "dev",
+			"problemMatcher": [],
+			"label": "Frontend dev"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "frontend",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build - frontend",
+			"detail": "nuxt build"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "backend",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build - backend",
+			"detail": "nuxt build"
+		},
+		{
+			"type": "npm",
+			"script": "ionic:build:prod",
+			"path": "frontend",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "Mobile build prod server",
+			"detail": "builds ionic nuxt"
+		},
+		{
+			"type": "npm",
+			"script": "ionic:build:local",
+			"path": "frontend",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "Mobile build local server",
+			"detail": "builds ionic nuxt"
+		},
+	]
+}
