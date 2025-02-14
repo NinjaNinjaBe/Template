@@ -2,7 +2,13 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@clerk/nuxt'],
+  modules: [
+    '@clerk/nuxt',
+    '@pinia/nuxt',
+  ],
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
   runtimeConfig: {
     public: {
       NODE_ENV: '',
