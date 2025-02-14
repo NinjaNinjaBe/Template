@@ -9,8 +9,9 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('hello')
-  getHello(): string {
+  getHello(): Object {
     console.log('hello');
-    return this.appService.getHello();
+    const message = this.appService.getHello();
+    return { message };
   }
 }
